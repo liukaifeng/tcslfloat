@@ -1,0 +1,1 @@
+console.log( "为了测试gitignore" );

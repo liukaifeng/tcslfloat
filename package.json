@@ -1,0 +1,14 @@
+{
+  "name": "tcslfloat",
+  "version": "1.0.0",
+  "description": "网站浮动工具条",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sea",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
