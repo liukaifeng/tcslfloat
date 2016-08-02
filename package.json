@@ -9,6 +9,12 @@
   "author": "sea",
   "license": "ISC",
   "dependencies": {
-    "path": "^0.12.7"
+    "art-template": "^3.0.3",
+    "css-loader": "^0.23.1",
+    "path": "^0.12.7",
+    "style-loader": "^0.13.1"
+  },
+  "devDependencies": {
+    "string-loader": "0.0.1"
   }
 }

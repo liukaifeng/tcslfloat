@@ -1,0 +1,81 @@
+#floattargetcan{
+	position:fixed;
+	bottom:10px;
+	right:30px;
+}
+#floattargetcan #btnCan{
+	border:1px solid grey;
+}
+#floattargetcan .floatFunMultiPopBtn{
+	width: 43px;
+	height: 43px;
+	text-align: center;
+	margin-top: 2px;
+}
+
+#floattargetcan .floatFunService{
+	margin-top: 2px;
+	text-align: center;
+	width: 43px;
+	height: 43px;
+	border-bottom: 1px solid grey;
+}
+
+#floattargetcan #floatFunProductTarget{
+	padding:10px 0 0 0;
+}
+
+#floattargetcan .floatFunProductCan{
+	width:88px;
+	position: absolute;
+	top: -260px;
+	right: -25px;
+	border: 1px solid gray;
+	display: none;
+}
+#floattargetcan .floatFunProductArraw{
+	width: 10px;
+    height: 10px;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    position: absolute;
+    bottom: -6px;
+    left: 37px;
+    background: white;
+    transform: rotate(45deg);
+}
+#floattargetcan .allProductBtn{
+	margin-bottom: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+#floattargetcan .allProductBtn a{
+	text-decoration: none;
+}
+#floattargetcan .floatFunProductCell{
+	height:65px;
+	padding: 10px 0 0 0;
+}
+#floattargetcan .floatFunProductCellIn{
+	width: 58px;
+    height: 45px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 0 0 0;
+    border-radius: 8px;
+    color: white;
+}
+#floattargetcan .floatFuncrm6{
+	background: #445264;
+}
+
+#floattargetcan .floatFuncrm7{
+	background: #1e66c7;
+}
+
+#floattargetcan .floatFuncrm6cloud{
+	background: #42b77c;
+}
+.floatFunProductCell.active{
+	background: #f1f1f3;
+}
