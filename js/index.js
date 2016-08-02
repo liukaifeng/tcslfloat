@@ -1,7 +1,7 @@
 var Jquery = require( "jquery" );
-var fund = require( "./html/fund.html" );
+var fund = require( "../html/fund.html" );
 var template = require('art-template');
-var css = require("./assets/css/style.css");
+var css = require("../assets/css/style.css");
 
 var data = [
     {
@@ -25,6 +25,15 @@ Jquery(function(){
 	Jquery( "#floattargetcan" ).html( html );
 
 	//console.log( Jquery( "#floattargetcan .floatFunProductCan" ).outerHeight() );
+
+	Jquery.ajax({
+		url:"http://192.168.0.9/work/tcslfloat/data.json",
+		datatype:"json",
+		type:"get",
+		success:function( data ){
+			console.log( data );
+		}
+	});
 
 	Jquery( "#floattargetcan .floatFunProductCan" ).css( 
 		"top",
