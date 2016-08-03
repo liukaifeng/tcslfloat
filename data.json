@@ -1,1 +1,16 @@
-{"data":[{"asd":123},{"asd":456}]}
+{"data":[
+    {
+        "systemName": "会员营销（新）",
+        "iconUrl": "test",
+        "systemIndex": "系统首页地址",
+        "summary": "提供移动互联时代会员管理及营销功能",
+        "color":"#90c8e8"
+    },
+    {
+        "systemName": "营业管理",
+        "iconUrl": "test",
+        "systemIndex": "test",
+        "summary": "提供餐饮总部数据深度经营分析功能",
+        "color":"#7bd69b"
+    }
+]}

@@ -21,10 +21,6 @@
 	border-bottom: 1px solid grey;
 }
 
-#floattargetcan #floatFunProductTarget{
-	padding:10px 0 0 0;
-}
-
 #floattargetcan .floatFunProductCan{
 	width:88px;
 	position: absolute;
@@ -63,8 +59,14 @@
     text-align: center;
     padding: 10px 0 0 0;
     border-radius: 8px;
-    color: white;
+    font-size: 14px;
+    line-height: 21px;
 }
+#floattargetcan .floatFunProductCellIn a{
+	text-decoration: none;
+	color: white;
+}
+
 #floattargetcan .floatFuncrm6{
 	background: #445264;
 }

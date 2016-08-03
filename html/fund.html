@@ -10,6 +10,7 @@
 <div class="floatFunProductCan">
 	
 		<div id="floatFunProductTarget">
+			<!-- 
 			<div class="floatFunProductCell">
 				<div class="floatFunProductCellIn floatFuncrm6">
 					crm6	
@@ -25,10 +26,21 @@
 					云供<br>应链	
 				</div>
 			</div>
+			-->
+			{{ each data as value i }}
+				<div class="floatFunProductCell">
+					<div class="floatFunProductCellIn floatFuncrm6" style="background:{{ value.color }}">
+						<a href="{{ value.iconUrl }}">{{ value.systemName }}</a>	
+					</div>
+				</div>	
+			{{ /each }}
+
 		</div>
-		<div class="allProductBtn">
+			
+		<!-- <div class="allProductBtn">
 			<a href="">全部产品</a>
-		</div>
+		</div> -->
+		
 		<div class="floatFunProductArraw"></div>
 	
 </div>
