@@ -3,4 +3,4 @@
 ```javascript
 getProductData({url:"data.json"})
 ```
-并且传入jquery的ajax参数，此时建议用get方式，把用户信息一起传入，得多对应的用户开的产品信息。注意，不要写jquery的success函数，如写会导致程序运行不正常。
+并且传入jquery的ajax参数，此时建议用get方式，把用户信息一起传入，得到对应的用户的产品信息。注意，不要写jquery的success函数，如写会导致程序运行不正常。
