@@ -19,7 +19,14 @@ Jquery(function(){
 			datatype:"json",
 			type:"get",
 			success:function( data ){
-				html = render(data);
+
+				if( typeof( data ) == "object" ){
+					html = render(data);
+				}else if( typeof( data ) == "string" ){
+					html = render( JSON.parse( data ) );
+				}
+
+				
 				
 				Jquery( "#floattargetcan" ).html( html );
 			
@@ -39,7 +46,7 @@ Jquery(function(){
 
 
 
-				console.log( data );
+				
 			}
 		},queryParams );
 

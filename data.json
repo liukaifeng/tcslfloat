@@ -1,16 +1,25 @@
-{"data":[
-    {
-        "systemName": "会员营销（新）",
-        "iconUrl": "test",
-        "systemIndex": "系统首页地址",
-        "summary": "提供移动互联时代会员管理及营销功能",
-        "color":"#90c8e8"
-    },
-    {
-        "systemName": "营业管理",
-        "iconUrl": "test",
-        "systemIndex": "test",
-        "summary": "提供餐饮总部数据深度经营分析功能",
-        "color":"#7bd69b"
-    }
-]}
+{
+    "data": [
+        {
+            "systemName": "营业管理",
+            "iconUrl": "test",
+            "systemIndex": "http://219.150.85.232:8078/cy7center/canyin/mng/",
+            "summary": "提供餐饮总部数据深度经营分析功能",
+            "color": "#445265"
+        },
+        {
+            "systemName": "库存管理",
+            "iconUrl": "test",
+            "systemIndex": "http://scmcy7.cn:8180/cldpoint/primary.do#",
+            "summary": "提供采购管理、库存管理、成本核算、菜品毛利分析以及供货商EDI平台的功能",
+            "color": "#5DB667"
+        },
+        {
+            "systemName": "会员营销",
+            "iconUrl": "test",
+            "systemIndex": "http://cs.wuuxiang.com:888/shop/",
+            "summary": "提供会员管理、精准营销及分析等功能",
+            "color": "#1F66C7"
+        }
+    ]
+}

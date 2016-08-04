@@ -13,13 +13,13 @@ module.exports = {
 	      { test:/\.css$/,loaders:['style','css'] }
 	    ]
 	},
-	plugins:[
-		new webpack.optimize.UglifyJsPlugin({
-			compress:{
-				warnings:false
-			}
-		})
-	],
+	// plugins:[
+	// 	new webpack.optimize.UglifyJsPlugin({
+	// 		compress:{
+	// 			warnings:false
+	// 		}
+	// 	})
+	// ],
 	externals:{
 		"jquery":"$"
 	},
