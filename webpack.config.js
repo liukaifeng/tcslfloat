@@ -5,12 +5,13 @@ module.exports = {
 	entry:'./js/index.js',
 	output:{
 		path: __dirname,
-		filename:"bundle.js"
+		filename:"./test/mockdata/public/bundle.js"
 	},
 	module: {
 	    loaders:[
 	      { test: /\.html$/, exclude: /node_modules/, loader: 'string' },
-	      { test:/\.css$/,loaders:['style','css'] }
+	      { test:/\.css$/,loaders:['style','css'] },
+	      { test: /\.(png|jpg)$/, loader: 'url-loader'}
 	    ]
 	},
 	// plugins:[

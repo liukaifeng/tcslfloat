@@ -1,7 +1,7 @@
 #floattargetcan{
-	position:fixed;
-	bottom:10px;
-	right:30px;
+	position: fixed;
+    bottom: 15px;
+    right: 65px;
 }
 #floattargetcan #btnCan{
 	border:1px solid grey;
@@ -22,22 +22,25 @@
 }
 
 #floattargetcan .floatFunProductCan{
-	width:88px;
+	width: 317px;
 	position: absolute;
 	top: -260px;
 	right: -25px;
 	border: 1px solid gray;
+	background:#4d575d;
 	display: none;
+	border-radius: 9px;
+	top: -204px;
+    display: block;
+    padding: 26px 0 26px 0;
 }
 #floattargetcan .floatFunProductArraw{
 	width: 10px;
     height: 10px;
-    border-bottom: 1px solid gray;
-    border-right: 1px solid gray;
     position: absolute;
     bottom: -6px;
-    left: 37px;
-    background: white;
+    right: 41px;
+    background: #4d575d;
     transform: rotate(45deg);
 }
 #floattargetcan .allProductBtn{
@@ -49,9 +52,20 @@
 	text-decoration: none;
 }
 #floattargetcan .floatFunProductCell{
-	height:65px;
-	padding: 10px 0 0 0;
+	height: 65px;
+    padding: 10px 0 0 0;
+    float: left;
+    padding-bottom: 16px;
+    padding-left: 38px;
 }
+
+#floattargetcan .floatFunProductCell span{
+	color:#fff;
+	line-height: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+
 #floattargetcan .floatFunProductCellIn{
 	width: 58px;
     height: 45px;
@@ -80,4 +94,16 @@
 }
 .floatFunProductCell.active{
 	background: #f1f1f3;
+}
+
+#floatFunProductMark {
+	position: absolute;
+    opacity: 0.4;
+    background: #000;
+    width: 213px;
+    height: 101px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: none;
 }
