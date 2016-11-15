@@ -16,7 +16,7 @@ var mockdata = {
             "loginUrl": "http://baidu.com",
             "isBinded": true,
             "summary": "提供餐饮总部数据深度经营分析功能",
-            "color": "#445265",
+            "color": "linear-gradient(#23d44a , #0389d9)",
             "parms": {
                 "userName": "用户名",
                 "password": "密码",

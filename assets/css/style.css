@@ -24,9 +24,8 @@
 #floattargetcan .floatFunProductCan{
 	width: 317px;
 	position: absolute;
-	top: -260px !important;
+	top: -260px;
 	right: -25px;
-	padding: 10px 0;
 	border: 1px solid gray;
 	background:#4d575d;
 	display: none;
@@ -68,11 +67,11 @@
 }
 
 #floattargetcan .floatFunProductCellIn{
-	width: 55px;
-    height: 55px;
+	width: 58px;
+    height: 45px;
     margin: 0 auto;
     text-align: center;
-    padding: 5px;
+    padding: 10px 0 0 0;
     border-radius: 8px;
     font-size: 14px;
     line-height: 21px;
