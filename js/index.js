@@ -63,10 +63,21 @@ Jquery(function(){
 
 				Jquery( "#floattargetcan" ).html( html );
 
-				var inst = Jquery('form[data-remodal-id=modal]').remodal();				
+				var inst = Jquery('form[data-remodal-id=modal]').remodal({ hashTracking:false });				
 				inst.open();
 				Jquery(document).on("confirmation",'.remodal',function(){
-					console.log( "confirm" );
+					// console.log( "confirm" );
+					Jquery(".remodal").submit();
+					// Jquery.ajax({
+					// 	url:"/cc",
+					// 	datatype:"json",
+					// 	type:"post",
+					// 	data:{hello:"123"},
+					// 	success:function( res ){
+					// 		console.log(res);
+					// 	}
+					// });
+
 				});
 
 

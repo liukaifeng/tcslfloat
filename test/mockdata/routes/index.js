@@ -77,4 +77,10 @@ router.get('/bb',function( req,res,next ){
 	// },3000);
 });
 
+router.post('/cc',function( req,res,next ){
+    
+    console.log( res.req.body );
+    res.send({hello:"456"});
+});
+
 module.exports = router;
