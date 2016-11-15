@@ -47,14 +47,19 @@
 	var Jquery = __webpack_require__( 1 );
 	var fund = __webpack_require__( 2 );
 	var template = __webpack_require__(3);
-	var css = __webpack_require__(12);
+
+	var remodal = __webpack_require__(12);
+	//var remodal = require('imports?$=jquery!remodal/dist/remodal.min');
+	var remodalcss1 = __webpack_require__(13);
+	var remodalcss2 = __webpack_require__(17);
+	var css = __webpack_require__(19);
 
 	// var img1 = require("../assets/image/kefu_40.png");
 	// var canyin7 = require("../assets/image/canyin7_40.png");
 	// var crm = require("../assets/image/crm_40.png");
 	// var yungyl = require("../assets/image/yungyl_40.png");
-	var moreSelected = __webpack_require__( 16 );
-	var more = __webpack_require__( 17 );
+	var moreSelected = __webpack_require__( 21 );
+	var more = __webpack_require__( 22 );
 
 	var render = template.compile(fund);
 	var html = "";
@@ -97,12 +102,19 @@
 					}else if( typeof( data ) == "string" ){
 						var parseD = JSON.parse( data );
 						parseD.data.sort(truefalseq);
-						html = render(  parseD );
+						html = render( parseD );
 					}
 
 					
-					
+
 					Jquery( "#floattargetcan" ).html( html );
+
+					var inst = Jquery('form[data-remodal-id=modal]').remodal();				
+					inst.open();
+					Jquery(document).on("confirmation",'.remodal',function(){
+						console.log( "confirm" );
+					});
+
 
 					// Jquery( "#base64img" ).attr("src",img1 );			
 
@@ -145,7 +157,7 @@
 /* 2 */
 /***/ function(module, exports) {
 
-	module.exports = "<div id=\"btnCan\">	<div class=\"floatFunService\"><!-- 换成base64 -->		<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM5MDk0QjhDNTg3NDExRTZBQzdBOUVCM0VBNDFDMTg2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM5MDk0QjhENTg3NDExRTZBQzdBOUVCM0VBNDFDMTg2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzkwOTRCOEE1ODc0MTFFNkFDN0E5RUIzRUE0MUMxODYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzkwOTRCOEI1ODc0MTFFNkFDN0E5RUIzRUE0MUMxODYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4AmlCnAAAAhElEQVR42mL8//8/w2AGTAyDHIw6cNSBow4c6g5kIaQgMiGbpg5YvmAqVULwMBD/x4MPU0kP2Q60IUPehkIzRzPJqANHHTiiHHiEgPxRKukhvSaBAlsyPG87GsWjDqSiA0cbC6NpcNSBow4cbSyMNhawA8bR8cFRB446cNSBI9yBAAEGAJi8NEOJcEn3AAAAAElFTkSuQmCC\">	</div>	<div class=\"floatFunMultiPopBtn\">		<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM1MjEyRDQ3NTg3NDExRTY5NzAwRDY3ODg3NTY3NTI2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM1MjEyRDQ4NTg3NDExRTY5NzAwRDY3ODg3NTY3NTI2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzUyMTJENDU1ODc0MTFFNjk3MDBENjc4ODc1Njc1MjYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzUyMTJENDY1ODc0MTFFNjk3MDBENjc4ODc1Njc1MjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7Skv6AAAAB80lEQVR42uyYPUgCYRjHu4g+oLLaAocWoSGowYK2aqiEPqDNrSCKbNGgD7AxWxqcIgiCtiCoQcEtU1ok23NoKaNdRKIg7P/C/0AkydNHz+ge+HHe3fs+9/N9X8/nTsvn802NHM1NDR6WoCVodrQU7riXN00Xujg//l9T3As8IAyewQfIgkce87CNzBQbiHbgAzugp+hcKxgkcyAAjkAQvNdjBAdAEhxSLgrWgQO0EQeP3bCNkrxn35qOoB3ccZsCGyD2Q7sncgomwAkYYt9x8FqLEVTTek25OBgrIVccMbaNs6/K0VELQS8Y5cgt8sdQbmTZJ8UcXmnBPrAHVOmzAjIVrN0M+6ocu8wpJugGNi76RBV3jQRz2JhTTHCG20uBe6+eY1ZScITbqICgnmNYQnCeCe3cTwsIpgtuWVHezCsSPAAhMAk0HvsUENRzaMwd5rUMCapv5a9jTeDnbJUtuGVC4eIzIug0QdDZ6BW1ZkTwwQTBpBHBoAmCQSOCYdZw9YoAr2loDe6zArkFOUGZTm5zzL3Aa1VUsIaIZExTbKrez8Uu8EZcJdro5X/Za1xS8Az0E/W5u+BcF1hiuXVVar1JPtX9FmqkXlj36etNPTRtG5GTFlzlyH2BNRARf/VRZUQ4vbJ/L9YbVkvQEvzjgt8CDABJvWE+GChosQAAAABJRU5ErkJggg==\">	</div></div> <div class=\"floatFunProductCan\">				<div id=\"floatFunProductMark\">					</div>		<div id=\"floatFunProductTarget\">			<!-- 			<div class=\"floatFunProductCell\">				<div class=\"floatFunProductCellIn floatFuncrm6\">					crm6					</div>			</div>			<div class=\"floatFunProductCell\">				<div class=\"floatFunProductCellIn floatFuncrm7\">					crm7					</div>			</div>			<div class=\"floatFunProductCell active\">				<div class=\"floatFunProductCellIn floatFuncrm6cloud\">					云供<br>应链					</div>			</div>			-->			{{ each data as value i }}				<div class=\"floatFunProductCell\">					<div class=\"floatFunProductCellIn floatFuncrm6\" style=\"background:{{ checkBind(value) }}\">						<img src=\"{{ value.iconUrl }}\" alt=\"\">						</div>					<span>{{ value.systemName }}</span>				</div>				{{ /each }}		</div>						<!-- <div class=\"allProductBtn\">			<a href=\"\">全部产品</a>		</div> -->				<div class=\"floatFunProductArraw\"></div>	</div>"
+	module.exports = "<div id=\"btnCan\">	<div class=\"floatFunService\"><!-- 换成base64 -->		<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM5MDk0QjhDNTg3NDExRTZBQzdBOUVCM0VBNDFDMTg2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM5MDk0QjhENTg3NDExRTZBQzdBOUVCM0VBNDFDMTg2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzkwOTRCOEE1ODc0MTFFNkFDN0E5RUIzRUE0MUMxODYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzkwOTRCOEI1ODc0MTFFNkFDN0E5RUIzRUE0MUMxODYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4AmlCnAAAAhElEQVR42mL8//8/w2AGTAyDHIw6cNSBow4c6g5kIaQgMiGbpg5YvmAqVULwMBD/x4MPU0kP2Q60IUPehkIzRzPJqANHHTiiHHiEgPxRKukhvSaBAlsyPG87GsWjDqSiA0cbC6NpcNSBow4cbSyMNhawA8bR8cFRB446cNSBI9yBAAEGAJi8NEOJcEn3AAAAAElFTkSuQmCC\">	</div>	<div class=\"floatFunMultiPopBtn\">		<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM1MjEyRDQ3NTg3NDExRTY5NzAwRDY3ODg3NTY3NTI2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM1MjEyRDQ4NTg3NDExRTY5NzAwRDY3ODg3NTY3NTI2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzUyMTJENDU1ODc0MTFFNjk3MDBENjc4ODc1Njc1MjYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzUyMTJENDY1ODc0MTFFNjk3MDBENjc4ODc1Njc1MjYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7Skv6AAAAB80lEQVR42uyYPUgCYRjHu4g+oLLaAocWoSGowYK2aqiEPqDNrSCKbNGgD7AxWxqcIgiCtiCoQcEtU1ok23NoKaNdRKIg7P/C/0AkydNHz+ge+HHe3fs+9/N9X8/nTsvn802NHM1NDR6WoCVodrQU7riXN00Xujg//l9T3As8IAyewQfIgkce87CNzBQbiHbgAzugp+hcKxgkcyAAjkAQvNdjBAdAEhxSLgrWgQO0EQeP3bCNkrxn35qOoB3ccZsCGyD2Q7sncgomwAkYYt9x8FqLEVTTek25OBgrIVccMbaNs6/K0VELQS8Y5cgt8sdQbmTZJ8UcXmnBPrAHVOmzAjIVrN0M+6ocu8wpJugGNi76RBV3jQRz2JhTTHCG20uBe6+eY1ZScITbqICgnmNYQnCeCe3cTwsIpgtuWVHezCsSPAAhMAk0HvsUENRzaMwd5rUMCapv5a9jTeDnbJUtuGVC4eIzIug0QdDZ6BW1ZkTwwQTBpBHBoAmCQSOCYdZw9YoAr2loDe6zArkFOUGZTm5zzL3Aa1VUsIaIZExTbKrez8Uu8EZcJdro5X/Za1xS8Az0E/W5u+BcF1hiuXVVar1JPtX9FmqkXlj36etNPTRtG5GTFlzlyH2BNRARf/VRZUQ4vbJ/L9YbVkvQEvzjgt8CDABJvWE+GChosQAAAABJRU5ErkJggg==\">	</div></div> <div class=\"floatFunProductCan\">				<div id=\"floatFunProductMark\">					</div>		<div id=\"floatFunProductTarget\">			<!-- 			<div class=\"floatFunProductCell\">				<div class=\"floatFunProductCellIn floatFuncrm6\">					crm6					</div>			</div>			<div class=\"floatFunProductCell\">				<div class=\"floatFunProductCellIn floatFuncrm7\">					crm7					</div>			</div>			<div class=\"floatFunProductCell active\">				<div class=\"floatFunProductCellIn floatFuncrm6cloud\">					云供<br>应链					</div>			</div>			-->			{{ each data as value i }}				<div class=\"floatFunProductCell\">					<div class=\"floatFunProductCellIn floatFuncrm6\" style=\"background:{{ checkBind(value) }}\">						<img src=\"{{ value.iconUrl }}\" alt=\"\">						</div>					<span>{{ value.systemName }}</span>				</div>				{{ /each }}		</div>						<!-- <div class=\"allProductBtn\">			<a href=\"\">全部产品</a>		</div> -->				<div class=\"floatFunProductArraw\"></div>				<form class=\"remodal\" data-remodal-id=\"modal\">			  <button data-remodal-action=\"close\" class=\"remodal-close\"></button>			  <div class=\"remodal-title\">			  	绑定服务			  </div>			  <div>			  	<div id=\"remodal-rectangle\"></div>			  	<span id=\"remodal-name\">吾享餐饮</span>			  	<div id=\"remodal-info\">			  		注：完成绑定后可直接登录该系统			  	</div>			  	<div class=\"remodal-inputcell\">			  		<div class=\"remodal-left\">集团号：</div>			  		<div class=\"remodal-right\">			  			<input type=\"text\">			  		</div>				  	</div>			  	<div class=\"remodal-inputcell\">			  		<div class=\"remodal-left\">用户名：</div>			  		<div class=\"remodal-right\">			  			<input type=\"text\">			  		</div>				  	</div>			  	<div class=\"remodal-inputcell\">			  		<div class=\"remodal-left\">密码：</div>			  		<div class=\"remodal-right\">			  			<input type=\"text\">			  		</div>				  	</div>			  </div>			  <button data-remodal-action=\"confirm\" class=\"remodal-confirm\">确定</button>			  <button data-remodal-action=\"cancel\" class=\"remodal-cancel\">取消</button>			  		</form></div>"
 
 /***/ },
 /* 3 */
@@ -2413,20 +2425,35 @@
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+	 *  Remodal - v1.1.0
+	 *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+	 *  http://vodkabears.github.io/remodal/
+	 *
+	 *  Made by Ilya Makarov
+	 *  Under MIT License
+	 */
+
+	!function(a,b){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_RESULT__ = function(c){return b(a,c)}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports?b(a,require("jquery")):b(a,a.jQuery||a.Zepto)}(this,function(a,b){"use strict";function c(a){if(w&&"none"===a.css("animation-name")&&"none"===a.css("-webkit-animation-name")&&"none"===a.css("-moz-animation-name")&&"none"===a.css("-o-animation-name")&&"none"===a.css("-ms-animation-name"))return 0;var b,c,d,e,f=a.css("animation-duration")||a.css("-webkit-animation-duration")||a.css("-moz-animation-duration")||a.css("-o-animation-duration")||a.css("-ms-animation-duration")||"0s",g=a.css("animation-delay")||a.css("-webkit-animation-delay")||a.css("-moz-animation-delay")||a.css("-o-animation-delay")||a.css("-ms-animation-delay")||"0s",h=a.css("animation-iteration-count")||a.css("-webkit-animation-iteration-count")||a.css("-moz-animation-iteration-count")||a.css("-o-animation-iteration-count")||a.css("-ms-animation-iteration-count")||"1";for(f=f.split(", "),g=g.split(", "),h=h.split(", "),e=0,c=f.length,b=Number.NEGATIVE_INFINITY;e<c;e++)d=parseFloat(f[e])*parseInt(h[e],10)+parseFloat(g[e]),d>b&&(b=d);return b}function d(){if(b(document.body).height()<=b(window).height())return 0;var a,c,d=document.createElement("div"),e=document.createElement("div");return d.style.visibility="hidden",d.style.width="100px",document.body.appendChild(d),a=d.offsetWidth,d.style.overflow="scroll",e.style.width="100%",d.appendChild(e),c=e.offsetWidth,d.parentNode.removeChild(d),a-c}function e(){if(!x){var a,c,e=b("html"),f=k("is-locked");e.hasClass(f)||(c=b(document.body),a=parseInt(c.css("padding-right"),10)+d(),c.css("padding-right",a+"px"),e.addClass(f))}}function f(){if(!x){var a,c,e=b("html"),f=k("is-locked");e.hasClass(f)&&(c=b(document.body),a=parseInt(c.css("padding-right"),10)-d(),c.css("padding-right",a+"px"),e.removeClass(f))}}function g(a,b,c,d){var e=k("is",b),f=[k("is",u.CLOSING),k("is",u.OPENING),k("is",u.CLOSED),k("is",u.OPENED)].join(" ");a.$bg.removeClass(f).addClass(e),a.$overlay.removeClass(f).addClass(e),a.$wrapper.removeClass(f).addClass(e),a.$modal.removeClass(f).addClass(e),a.state=b,!c&&a.$modal.trigger({type:b,reason:d},[{reason:d}])}function h(a,d,e){var f=0,g=function(a){a.target===this&&f++},h=function(a){a.target===this&&0===--f&&(b.each(["$bg","$overlay","$wrapper","$modal"],function(a,b){e[b].off(r+" "+s)}),d())};b.each(["$bg","$overlay","$wrapper","$modal"],function(a,b){e[b].on(r,g).on(s,h)}),a(),0===c(e.$bg)&&0===c(e.$overlay)&&0===c(e.$wrapper)&&0===c(e.$modal)&&(b.each(["$bg","$overlay","$wrapper","$modal"],function(a,b){e[b].off(r+" "+s)}),d())}function i(a){a.state!==u.CLOSED&&(b.each(["$bg","$overlay","$wrapper","$modal"],function(b,c){a[c].off(r+" "+s)}),a.$bg.removeClass(a.settings.modifier),a.$overlay.removeClass(a.settings.modifier).hide(),a.$wrapper.hide(),f(),g(a,u.CLOSED,!0))}function j(a){var b,c,d,e,f={};for(a=a.replace(/\s*:\s*/g,":").replace(/\s*,\s*/g,","),b=a.split(","),e=0,c=b.length;e<c;e++)b[e]=b[e].split(":"),d=b[e][1],("string"==typeof d||d instanceof String)&&(d="true"===d||"false"!==d&&d),("string"==typeof d||d instanceof String)&&(d=isNaN(d)?d:+d),f[b[e][0]]=d;return f}function k(){for(var a=q,b=0;b<arguments.length;++b)a+="-"+arguments[b];return a}function l(){var a,c,d=location.hash.replace("#","");if(d){try{c=b('[data-remodal-id="'+d+'"]')}catch(e){}c&&c.length&&(a=b[p].lookup[c.data(p)],a&&a.settings.hashTracking&&a.open())}else n&&n.state===u.OPENED&&n.settings.hashTracking&&n.close()}function m(a,c){var d=b(document.body),e=d,f=this;f.settings=b.extend({},t,c),f.index=b[p].lookup.push(f)-1,f.state=u.CLOSED,f.$overlay=b("."+k("overlay")),null!==f.settings.appendTo&&f.settings.appendTo.length&&(e=b(f.settings.appendTo)),f.$overlay.length||(f.$overlay=b("<div>").addClass(k("overlay")+" "+k("is",u.CLOSED)).hide(),e.append(f.$overlay)),f.$bg=b("."+k("bg")).addClass(k("is",u.CLOSED)),f.$modal=a.addClass(q+" "+k("is-initialized")+" "+f.settings.modifier+" "+k("is",u.CLOSED)).attr("tabindex","-1"),f.$wrapper=b("<div>").addClass(k("wrapper")+" "+f.settings.modifier+" "+k("is",u.CLOSED)).hide().append(f.$modal),e.append(f.$wrapper),f.$wrapper.on("click."+q,'[data-remodal-action="close"]',function(a){a.preventDefault(),f.close()}),f.$wrapper.on("click."+q,'[data-remodal-action="cancel"]',function(a){a.preventDefault(),f.$modal.trigger(v.CANCELLATION),f.settings.closeOnCancel&&f.close(v.CANCELLATION)}),f.$wrapper.on("click."+q,'[data-remodal-action="confirm"]',function(a){a.preventDefault(),f.$modal.trigger(v.CONFIRMATION),f.settings.closeOnConfirm&&f.close(v.CONFIRMATION)}),f.$wrapper.on("click."+q,function(a){var c=b(a.target);c.hasClass(k("wrapper"))&&f.settings.closeOnOutsideClick&&f.close()})}var n,o,p="remodal",q=a.REMODAL_GLOBALS&&a.REMODAL_GLOBALS.NAMESPACE||p,r=b.map(["animationstart","webkitAnimationStart","MSAnimationStart","oAnimationStart"],function(a){return a+"."+q}).join(" "),s=b.map(["animationend","webkitAnimationEnd","MSAnimationEnd","oAnimationEnd"],function(a){return a+"."+q}).join(" "),t=b.extend({hashTracking:!0,closeOnConfirm:!0,closeOnCancel:!0,closeOnEscape:!0,closeOnOutsideClick:!0,modifier:"",appendTo:null},a.REMODAL_GLOBALS&&a.REMODAL_GLOBALS.DEFAULTS),u={CLOSING:"closing",CLOSED:"closed",OPENING:"opening",OPENED:"opened"},v={CONFIRMATION:"confirmation",CANCELLATION:"cancellation"},w=function(){var a=document.createElement("div").style;return void 0!==a.animationName||void 0!==a.WebkitAnimationName||void 0!==a.MozAnimationName||void 0!==a.msAnimationName||void 0!==a.OAnimationName}(),x=/iPad|iPhone|iPod/.test(navigator.platform);m.prototype.open=function(){var a,c=this;c.state!==u.OPENING&&c.state!==u.CLOSING&&(a=c.$modal.attr("data-remodal-id"),a&&c.settings.hashTracking&&(o=b(window).scrollTop(),location.hash=a),n&&n!==c&&i(n),n=c,e(),c.$bg.addClass(c.settings.modifier),c.$overlay.addClass(c.settings.modifier).show(),c.$wrapper.show().scrollTop(0),c.$modal.focus(),h(function(){g(c,u.OPENING)},function(){g(c,u.OPENED)},c))},m.prototype.close=function(a){var c=this;c.state!==u.OPENING&&c.state!==u.CLOSING&&(c.settings.hashTracking&&c.$modal.attr("data-remodal-id")===location.hash.substr(1)&&(location.hash="",b(window).scrollTop(o)),h(function(){g(c,u.CLOSING,!1,a)},function(){c.$bg.removeClass(c.settings.modifier),c.$overlay.removeClass(c.settings.modifier).hide(),c.$wrapper.hide(),f(),g(c,u.CLOSED,!1,a)},c))},m.prototype.getState=function(){return this.state},m.prototype.destroy=function(){var a,c=b[p].lookup;i(this),this.$wrapper.remove(),delete c[this.index],a=b.grep(c,function(a){return!!a}).length,0===a&&(this.$overlay.remove(),this.$bg.removeClass(k("is",u.CLOSING)+" "+k("is",u.OPENING)+" "+k("is",u.CLOSED)+" "+k("is",u.OPENED)))},b[p]={lookup:[]},b.fn[p]=function(a){var c,d;return this.each(function(e,f){d=b(f),null==d.data(p)?(c=new m(d,a),d.data(p,c.index),c.settings.hashTracking&&d.attr("data-remodal-id")===location.hash.substr(1)&&c.open()):c=b[p].lookup[d.data(p)]}),c},b(document).ready(function(){b(document).on("click","[data-remodal-target]",function(a){a.preventDefault();var c=a.currentTarget,d=c.getAttribute("data-remodal-target"),e=b('[data-remodal-id="'+d+'"]');b[p].lookup[e.data(p)].open()}),b(document).find("."+q).each(function(a,c){var d=b(c),e=d.data("remodal-options");e?("string"==typeof e||e instanceof String)&&(e=j(e)):e={},d[p](e)}),b(document).on("keydown."+q,function(a){n&&n.settings.closeOnEscape&&n.state===u.OPENED&&27===a.keyCode&&n.close()}),b(window).on("hashchange."+q,l)})});
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(13);
+	var content = __webpack_require__(14);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(15)(content, {});
+	var update = __webpack_require__(16)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./style.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./style.css");
+			module.hot.accept("!!./../../css-loader/index.js!./remodal-default-theme.css", function() {
+				var newContent = require("!!./../../css-loader/index.js!./remodal-default-theme.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2436,21 +2463,21 @@
 	}
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(14)();
+	exports = module.exports = __webpack_require__(15)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "#floattargetcan{\r\n\tposition: fixed;\r\n    bottom: 15px;\r\n    right: 65px;\r\n}\r\n#floattargetcan #btnCan{\r\n\tborder:1px solid grey;\r\n}\r\n#floattargetcan .floatFunMultiPopBtn{\r\n\twidth: 43px;\r\n\theight: 43px;\r\n\ttext-align: center;\r\n\tmargin-top: 2px;\r\n}\r\n\r\n#floattargetcan .floatFunService{\r\n\tmargin-top: 2px;\r\n\ttext-align: center;\r\n\twidth: 43px;\r\n\theight: 43px;\r\n\tborder-bottom: 1px solid grey;\r\n}\r\n\r\n#floattargetcan .floatFunProductCan{\r\n\twidth: 317px;\r\n\tposition: absolute;\r\n\ttop: -260px;\r\n\tright: -25px;\r\n\tborder: 1px solid gray;\r\n\tbackground:#4d575d;\r\n\tdisplay: none;\r\n\tborder-radius: 9px;\r\n\ttop: -204px;\r\n    \r\n    padding: 26px 0 26px 0;\r\n}\r\n#floattargetcan .floatFunProductArraw{\r\n\twidth: 10px;\r\n    height: 10px;\r\n    position: absolute;\r\n    bottom: -6px;\r\n    right: 41px;\r\n    background: #4d575d;\r\n    transform: rotate(45deg);\r\n}\r\n#floattargetcan .allProductBtn{\r\n\tmargin-bottom: 10px;\r\n    text-align: center;\r\n    margin-top: 10px;\r\n}\r\n#floattargetcan .allProductBtn a{\r\n\ttext-decoration: none;\r\n}\r\n#floattargetcan .floatFunProductCell{\r\n\theight: 65px;\r\n    padding: 10px 0 0 0;\r\n    float: left;\r\n    padding-bottom: 16px;\r\n    padding-left: 38px;\r\n}\r\n\r\n#floattargetcan .floatFunProductCell span{\r\n\tcolor:#fff;\r\n\tline-height: 30px;\r\n    font-size: 13px;\r\n    text-align: center;\r\n}\r\n\r\n#floattargetcan .floatFunProductCellIn{\r\n\twidth: 58px;\r\n    height: 45px;\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    padding: 10px 0 0 0;\r\n    border-radius: 8px;\r\n    font-size: 14px;\r\n    line-height: 21px;\r\n}\r\n#floattargetcan .floatFunProductCellIn a{\r\n\ttext-decoration: none;\r\n\tcolor: white;\r\n}\r\n\r\n#floattargetcan .floatFuncrm6{\r\n\tbackground: #445264;\r\n}\r\n\r\n#floattargetcan .floatFuncrm7{\r\n\tbackground: #1e66c7;\r\n}\r\n\r\n#floattargetcan .floatFuncrm6cloud{\r\n\tbackground: #42b77c;\r\n}\r\n.floatFunProductCell.active{\r\n\tbackground: #f1f1f3;\r\n}\r\n\r\n#floatFunProductMark {\r\n\tposition: absolute;\r\n    opacity: 0.4;\r\n    background: #000;\r\n    width: 213px;\r\n    height: 101px;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: -1;\r\n    display: none;\r\n}", ""]);
+	exports.push([module.id, "/*\n *  Remodal - v1.1.0\n *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.\n *  http://vodkabears.github.io/remodal/\n *\n *  Made by Ilya Makarov\n *  Under MIT License\n */\n\n/* ==========================================================================\n   Remodal's default mobile first theme\n   ========================================================================== */\n\n/* Default theme styles for the background */\n\n.remodal-bg.remodal-is-opening,\n.remodal-bg.remodal-is-opened {\n  -webkit-filter: blur(3px);\n  filter: blur(3px);\n}\n\n/* Default theme styles of the overlay */\n\n.remodal-overlay {\n  background: rgba(43, 46, 56, 0.9);\n}\n\n.remodal-overlay.remodal-is-opening,\n.remodal-overlay.remodal-is-closing {\n  -webkit-animation-duration: 0.3s;\n  animation-duration: 0.3s;\n  -webkit-animation-fill-mode: forwards;\n  animation-fill-mode: forwards;\n}\n\n.remodal-overlay.remodal-is-opening {\n  -webkit-animation-name: remodal-overlay-opening-keyframes;\n  animation-name: remodal-overlay-opening-keyframes;\n}\n\n.remodal-overlay.remodal-is-closing {\n  -webkit-animation-name: remodal-overlay-closing-keyframes;\n  animation-name: remodal-overlay-closing-keyframes;\n}\n\n/* Default theme styles of the wrapper */\n\n.remodal-wrapper {\n  padding: 10px 10px 0;\n}\n\n/* Default theme styles of the modal dialog */\n\n.remodal {\n  box-sizing: border-box;\n  width: 100%;\n  margin-bottom: 10px;\n  padding: 35px;\n\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n\n  color: #2b2e38;\n  background: #fff;\n}\n\n.remodal.remodal-is-opening,\n.remodal.remodal-is-closing {\n  -webkit-animation-duration: 0.3s;\n  animation-duration: 0.3s;\n  -webkit-animation-fill-mode: forwards;\n  animation-fill-mode: forwards;\n}\n\n.remodal.remodal-is-opening {\n  -webkit-animation-name: remodal-opening-keyframes;\n  animation-name: remodal-opening-keyframes;\n}\n\n.remodal.remodal-is-closing {\n  -webkit-animation-name: remodal-closing-keyframes;\n  animation-name: remodal-closing-keyframes;\n}\n\n/* Vertical align of the modal dialog */\n\n.remodal,\n.remodal-wrapper:after {\n  vertical-align: middle;\n}\n\n/* Close button */\n\n.remodal-close {\n  position: absolute;\n  top: 0;\n  left: 0;\n\n  display: block;\n  overflow: visible;\n\n  width: 35px;\n  height: 35px;\n  margin: 0;\n  padding: 0;\n\n  cursor: pointer;\n  -webkit-transition: color 0.2s;\n  transition: color 0.2s;\n  text-decoration: none;\n\n  color: #95979c;\n  border: 0;\n  outline: 0;\n  background: transparent;\n}\n\n.remodal-close:hover,\n.remodal-close:focus {\n  color: #2b2e38;\n}\n\n.remodal-close:before {\n  font-family: Arial, \"Helvetica CY\", \"Nimbus Sans L\", sans-serif !important;\n  font-size: 25px;\n  line-height: 35px;\n\n  position: absolute;\n  top: 0;\n  left: 0;\n\n  display: block;\n\n  width: 35px;\n\n  content: \"\\D7\";\n  text-align: center;\n}\n\n/* Dialog buttons */\n\n.remodal-confirm,\n.remodal-cancel {\n  font: inherit;\n\n  display: inline-block;\n  overflow: visible;\n\n  min-width: 110px;\n  margin: 0;\n  padding: 12px 0;\n\n  cursor: pointer;\n  -webkit-transition: background 0.2s;\n  transition: background 0.2s;\n  text-align: center;\n  vertical-align: middle;\n  text-decoration: none;\n\n  border: 0;\n  outline: 0;\n}\n\n.remodal-confirm {\n  color: #fff;\n  background: #81c784;\n}\n\n.remodal-confirm:hover,\n.remodal-confirm:focus {\n  background: #66bb6a;\n}\n\n.remodal-cancel {\n  color: #fff;\n  background: #e57373;\n}\n\n.remodal-cancel:hover,\n.remodal-cancel:focus {\n  background: #ef5350;\n}\n\n/* Remove inner padding and border in Firefox 4+ for the button tag. */\n\n.remodal-confirm::-moz-focus-inner,\n.remodal-cancel::-moz-focus-inner,\n.remodal-close::-moz-focus-inner {\n  padding: 0;\n\n  border: 0;\n}\n\n/* Keyframes\n   ========================================================================== */\n\n@-webkit-keyframes remodal-opening-keyframes {\n  from {\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n\n    opacity: 0;\n  }\n  to {\n    -webkit-transform: none;\n    transform: none;\n\n    opacity: 1;\n  }\n}\n\n@keyframes remodal-opening-keyframes {\n  from {\n    -webkit-transform: scale(1.05);\n    transform: scale(1.05);\n\n    opacity: 0;\n  }\n  to {\n    -webkit-transform: none;\n    transform: none;\n\n    opacity: 1;\n  }\n}\n\n@-webkit-keyframes remodal-closing-keyframes {\n  from {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n\n    opacity: 1;\n  }\n  to {\n    -webkit-transform: scale(0.95);\n    transform: scale(0.95);\n\n    opacity: 0;\n  }\n}\n\n@keyframes remodal-closing-keyframes {\n  from {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n\n    opacity: 1;\n  }\n  to {\n    -webkit-transform: scale(0.95);\n    transform: scale(0.95);\n\n    opacity: 0;\n  }\n}\n\n@-webkit-keyframes remodal-overlay-opening-keyframes {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@keyframes remodal-overlay-opening-keyframes {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n\n@-webkit-keyframes remodal-overlay-closing-keyframes {\n  from {\n    opacity: 1;\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n@keyframes remodal-overlay-closing-keyframes {\n  from {\n    opacity: 1;\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n/* Media queries\n   ========================================================================== */\n\n@media only screen and (min-width: 641px) {\n  .remodal {\n    max-width: 700px;\n  }\n}\n\n/* IE8\n   ========================================================================== */\n\n.lt-ie9 .remodal-overlay {\n  background: #2b2e38;\n}\n\n.lt-ie9 .remodal {\n  width: 700px;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	/*
@@ -2506,7 +2533,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -2758,13 +2785,93 @@
 
 
 /***/ },
-/* 16 */
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(18);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(16)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../css-loader/index.js!./remodal.css", function() {
+				var newContent = require("!!./../../css-loader/index.js!./remodal.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(15)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "/*\n *  Remodal - v1.1.0\n *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.\n *  http://vodkabears.github.io/remodal/\n *\n *  Made by Ilya Makarov\n *  Under MIT License\n */\n\n/* ==========================================================================\n   Remodal's necessary styles\n   ========================================================================== */\n\n/* Hide scroll bar */\n\nhtml.remodal-is-locked {\n  overflow: hidden;\n\n  -ms-touch-action: none;\n  touch-action: none;\n}\n\n/* Anti FOUC */\n\n.remodal,\n[data-remodal-id] {\n  display: none;\n}\n\n/* Necessary styles of the overlay */\n\n.remodal-overlay {\n  position: fixed;\n  z-index: 9999;\n  top: -5000px;\n  right: -5000px;\n  bottom: -5000px;\n  left: -5000px;\n\n  display: none;\n}\n\n/* Necessary styles of the wrapper */\n\n.remodal-wrapper {\n  position: fixed;\n  z-index: 10000;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n\n  display: none;\n  overflow: auto;\n\n  text-align: center;\n\n  -webkit-overflow-scrolling: touch;\n}\n\n.remodal-wrapper:after {\n  display: inline-block;\n\n  height: 100%;\n  margin-left: -0.05em;\n\n  content: \"\";\n}\n\n/* Fix iPad, iPhone glitches */\n\n.remodal-overlay,\n.remodal-wrapper {\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n\n/* Necessary styles of the modal dialog */\n\n.remodal {\n  position: relative;\n\n  outline: none;\n\n  -webkit-text-size-adjust: 100%;\n  -ms-text-size-adjust: 100%;\n  text-size-adjust: 100%;\n}\n\n.remodal-is-initialized {\n  /* Disable Anti-FOUC */\n  display: inline-block;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(20);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(16)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./style.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./style.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(15)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#floattargetcan{\r\n\tposition: fixed;\r\n    bottom: 15px;\r\n    right: 65px;\r\n}\r\n#floattargetcan #btnCan{\r\n\tborder:1px solid grey;\r\n}\r\n#floattargetcan .floatFunMultiPopBtn{\r\n\twidth: 43px;\r\n\theight: 43px;\r\n\ttext-align: center;\r\n\tmargin-top: 2px;\r\n}\r\n\r\n#floattargetcan .floatFunService{\r\n\tmargin-top: 2px;\r\n\ttext-align: center;\r\n\twidth: 43px;\r\n\theight: 43px;\r\n\tborder-bottom: 1px solid grey;\r\n}\r\n\r\n#floattargetcan .floatFunProductCan{\r\n\twidth: 317px;\r\n\tposition: absolute;\r\n\ttop: -260px;\r\n\tright: -25px;\r\n\tborder: 1px solid gray;\r\n\tbackground:#4d575d;\r\n\tdisplay: none;\r\n\tborder-radius: 9px;\r\n\ttop: -204px;\r\n    \r\n    padding: 26px 0 26px 0;\r\n}\r\n#floattargetcan .floatFunProductArraw{\r\n\twidth: 10px;\r\n    height: 10px;\r\n    position: absolute;\r\n    bottom: -6px;\r\n    right: 41px;\r\n    background: #4d575d;\r\n    transform: rotate(45deg);\r\n}\r\n#floattargetcan .allProductBtn{\r\n\tmargin-bottom: 10px;\r\n    text-align: center;\r\n    margin-top: 10px;\r\n}\r\n#floattargetcan .allProductBtn a{\r\n\ttext-decoration: none;\r\n}\r\n#floattargetcan .floatFunProductCell{\r\n\theight: 65px;\r\n    padding: 10px 0 0 0;\r\n    float: left;\r\n    padding-bottom: 16px;\r\n    padding-left: 38px;\r\n}\r\n\r\n#floattargetcan .floatFunProductCell span{\r\n\tcolor:#fff;\r\n\tline-height: 30px;\r\n    font-size: 13px;\r\n    text-align: center;\r\n}\r\n\r\n#floattargetcan .floatFunProductCellIn{\r\n\twidth: 58px;\r\n    height: 45px;\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    padding: 10px 0 0 0;\r\n    border-radius: 8px;\r\n    font-size: 14px;\r\n    line-height: 21px;\r\n}\r\n#floattargetcan .floatFunProductCellIn a{\r\n\ttext-decoration: none;\r\n\tcolor: white;\r\n}\r\n\r\n#floattargetcan .floatFuncrm6{\r\n\tbackground: #445264;\r\n}\r\n\r\n#floattargetcan .floatFuncrm7{\r\n\tbackground: #1e66c7;\r\n}\r\n\r\n#floattargetcan .floatFuncrm6cloud{\r\n\tbackground: #42b77c;\r\n}\r\n.floatFunProductCell.active{\r\n\tbackground: #f1f1f3;\r\n}\r\n\r\n#floatFunProductMark {\r\n\tposition: absolute;\r\n    opacity: 0.4;\r\n    background: #000;\r\n    width: 213px;\r\n    height: 101px;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: -1;\r\n    display: none;\r\n}\r\n\r\n.remodal-overlay{\r\n\topacity: 0.8;\r\n\tbackground-color: #fff;\r\n}\r\n\r\n.remodal {\r\n    border: 1px solid #eaeaea;\r\n    width: 598px;\r\n    height: 500px;\r\n    box-shadow: 0px 6px 13px -6px #000000;\r\n}\r\n\r\n.remodal-close {\r\n\tright: 0;\r\n\tleft:auto;\r\n}\r\n\r\n.remodal-title{\r\n\tposition: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    line-height: 56px;\r\n    font-size: 16px;\r\n    font-weight: bold;\r\n    padding: 0 0 0 28px;\r\n}\r\n#remodal-rectangle{\r\n\twidth: 64px;\r\n    height: 64px;\r\n    background: linear-gradient(45deg ,#0389d9 , #23d44a);\r\n    margin: 20px auto 0 auto;\r\n    border-radius: 15px;\r\n}\r\n#remodal-name{\r\n\tfont-size: 14px;\r\n\tcolor:#333;\r\n}\r\n#remodal-info{\r\n\twidth: 420px;\r\n    margin: 35px auto 0 auto;\r\n    height: 36px;\r\n    border: 1px solid #ebf2fb;\r\n    background: #f5f9ff;\r\n    font-size: 12px;\r\n    color: #666;\r\n    text-align: left;\r\n    line-height: 36px;\r\n    padding: 0 0 0 15px;\r\n}\r\n.remodal-inputcell {\r\n    width: 400px;\r\n    margin:20px auto 0 auto;\r\n}\r\n.remodal-inputcell div {\r\n    float: left;\r\n    font-size: 12px;\r\n    color: #666;\r\n    line-height: 34px;\r\n}\r\n.remodal-inputcell:after {\r\n    content: \"\";\r\n    display: block;\r\n    clear: both;\r\n}\r\n.remodal-left {\r\n    width: 15%;\r\n}\r\n.remodal-right {\r\n    width: 85%;\r\n    text-align: left;\r\n}\r\n.remodal-right input{\r\n\twidth: 330px;\r\n    height: 34px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    border: 1px solid #dcdcdc;\r\n}\r\n.remodal-confirm {\r\n    margin: 30px 0 0 0;\r\n    background: #4287e5;\r\n    border: 1px solid #316fc2;\r\n    min-width: 50px;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    padding: 0;\r\n    border-radius: 4px;\r\n    font-size: 12px;\r\n}\r\n.remodal-confirm:hover{\r\n\tbackground: #357ebd;\r\n}\r\n.remodal-cancel {\r\n    margin: 30px 0 0 0;\r\n    background: #fff;\r\n    border: 1px solid #dcdcdc;\r\n    color:#666666;\r\n\tmin-width: 50px;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    padding: 0;\r\n    border-radius: 4px;\r\n    font-size: 12px;\r\n}\r\n.remodal-cancel:hover{\r\n\tbackground: #e6e6e6;\r\n}\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,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"
 
 /***/ },
-/* 17 */
+/* 22 */
 /***/ function(module, exports) {
 
 	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM5MDk0QjhDNTg3NDExRTZBQzdBOUVCM0VBNDFDMTg2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM5MDk0QjhENTg3NDExRTZBQzdBOUVCM0VBNDFDMTg2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzkwOTRCOEE1ODc0MTFFNkFDN0E5RUIzRUE0MUMxODYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzkwOTRCOEI1ODc0MTFFNkFDN0E5RUIzRUE0MUMxODYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4AmlCnAAAAhElEQVR42mL8//8/w2AGTAyDHIw6cNSBow4c6g5kIaQgMiGbpg5YvmAqVULwMBD/x4MPU0kP2Q60IUPehkIzRzPJqANHHTiiHHiEgPxRKukhvSaBAlsyPG87GsWjDqSiA0cbC6NpcNSBow4cbSyMNhawA8bR8cFRB446cNSBI9yBAAEGAJi8NEOJcEn3AAAAAElFTkSuQmCC"

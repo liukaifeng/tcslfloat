@@ -18,7 +18,7 @@ var mockdata = {
             "summary": "提供餐饮总部数据深度经营分析功能",
             "color": "linear-gradient(45deg ,#0389d9 , #23d44a)",
             "parms": {
-                "userName": "用户名1",
+                "userName1": "用户名1",
                 "password": "密码",
                 "groupId": "集团号"
             }
@@ -33,7 +33,7 @@ var mockdata = {
             "summary": "提供采购管理、库存管理、成本核算、菜品毛利分析以及供货商EDI平台的功能",
             "color": "linear-gradient(45deg ,#3064fa , #1dc7e6)",
             "parms": {
-                "userName": "用户名2",
+                "userName2": "用户名2",
                 "password": "密码",
                 "groupId": "集团号"
             }
@@ -48,7 +48,22 @@ var mockdata = {
             "summary": "提供会员管理、精准营销及分析等功能",
             "color": "linear-gradient(45deg ,#2984e4 , #d13ed4)",
             "parms": {
-                "userName": "用户名3",
+                "userName3": "用户名3",
+                "password": "密码",
+                "groupId": "集团号"
+            }
+        },
+        {
+            "systemName": "会员营销1",
+            "iconUrl": "image/crm_40.png",
+            "productId": "1236",
+            "loginUrl": "http://163.com",
+            "isBinded": true,
+            "systemIndex": "http://cs.wuuxiang.com:888/shop/",
+            "summary": "提供会员管理、精准营销及分析等功能",
+            "color": "linear-gradient(45deg ,#2984e4 , #d13ed4)",
+            "parms": {
+                "userName4": "用户名4",
                 "password": "密码",
                 "groupId": "集团号"
             }

@@ -1,6 +1,11 @@
 var Jquery = require( "jquery" );
 var fund = require( "../html/fund.html" );
 var template = require('art-template');
+
+var remodal = require('remodal/dist/remodal.min.js');
+//var remodal = require('imports?$=jquery!remodal/dist/remodal.min');
+var remodalcss1 = require('remodal/dist/remodal-default-theme.css');
+var remodalcss2 = require('remodal/dist/remodal.css');
 var css = require("../assets/css/style.css");
 
 // var img1 = require("../assets/image/kefu_40.png");
@@ -51,12 +56,19 @@ Jquery(function(){
 				}else if( typeof( data ) == "string" ){
 					var parseD = JSON.parse( data );
 					parseD.data.sort(truefalseq);
-					html = render(  parseD );
+					html = render( parseD );
 				}
 
 				
-				
+
 				Jquery( "#floattargetcan" ).html( html );
+
+				var inst = Jquery('form[data-remodal-id=modal]').remodal();				
+				inst.open();
+				Jquery(document).on("confirmation",'.remodal',function(){
+					console.log( "confirm" );
+				});
+
 
 				// Jquery( "#base64img" ).attr("src",img1 );			
 

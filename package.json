@@ -12,6 +12,7 @@
     "art-template": "^3.0.3",
     "css-loader": "^0.23.1",
     "path": "^0.12.7",
+    "remodal": "^1.1.0",
     "style-loader": "^0.13.1"
   },
   "devDependencies": {
