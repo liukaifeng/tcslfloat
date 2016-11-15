@@ -7,10 +7,19 @@ var css = require("../assets/css/style.css");
 // var canyin7 = require("../assets/image/canyin7_40.png");
 // var crm = require("../assets/image/crm_40.png");
 // var yungyl = require("../assets/image/yungyl_40.png");
-
+var moreSelected = require( "../assets/image/more_40_selected.png" );
+var more = require( "../assets/image/more_40.png" );
 
 var render = template.compile(fund);
 var html = "";
+
+template.helper( "checkBind",function( value ){
+	if( value.isBinded ){
+		return value.color;
+	}else{
+		return "gray";
+	}
+});
 
 Jquery(function(){
 	Jquery("body").append("<div id='floattargetcan'></div>");
@@ -18,6 +27,15 @@ Jquery(function(){
 	//console.log( require("../assets/image/kefu_40.png") );
 	//console.log( Jquery( "#floattargetcan .floatFunProductCan" ).outerHeight() );
 	
+	function truefalseq(a,b){
+		if( a.isBinded && b.isBinded ){
+			return 0;
+		}else if( a.isBinded ){
+			return -1
+		}else if( b.isBinded ){
+			return 1
+		}
+	}
 
 	window.getProductData = function( queryParams ){
 		
@@ -28,9 +46,12 @@ Jquery(function(){
 			success:function( data ){
 
 				if( typeof( data ) == "object" ){
+					data.data.sort(truefalseq);
 					html = render(data);
 				}else if( typeof( data ) == "string" ){
-					html = render( JSON.parse( data ) );
+					var parseD = JSON.parse( data );
+					parseD.data.sort(truefalseq);
+					html = render(  parseD );
 				}
 
 				
@@ -46,8 +67,10 @@ Jquery(function(){
 
 				Jquery(".floatFunService").on("click",function(){
 					if( Jquery( ".floatFunProductCan" ).css("display") == "none" ){
+						Jquery( ".floatFunService img" ).attr( "src",moreSelected );
 						Jquery( ".floatFunProductCan" ).fadeIn( 300 );
 					}else if( Jquery( ".floatFunProductCan" ).css("display") != "none" ){
+						Jquery( ".floatFunService img" ).attr( "src",more );
 						Jquery( ".floatFunProductCan" ).fadeOut( 300 );
 					}
 				});

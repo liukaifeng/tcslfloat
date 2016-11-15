@@ -33,7 +33,7 @@
 			-->
 			{{ each data as value i }}
 				<div class="floatFunProductCell">
-					<div class="floatFunProductCellIn floatFuncrm6" style="background:{{ value.color }}">
+					<div class="floatFunProductCellIn floatFuncrm6" style="background:{{ checkBind(value) }}">
 						<img src="{{ value.iconUrl }}" alt="">	
 					</div>
 					<span>{{ value.systemName }}</span>

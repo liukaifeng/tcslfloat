@@ -16,9 +16,9 @@ var mockdata = {
             "loginUrl": "http://baidu.com",
             "isBinded": true,
             "summary": "提供餐饮总部数据深度经营分析功能",
-            "color": "linear-gradient(#23d44a , #0389d9)",
+            "color": "linear-gradient(45deg ,#0389d9 , #23d44a)",
             "parms": {
-                "userName": "用户名",
+                "userName": "用户名1",
                 "password": "密码",
                 "groupId": "集团号"
             }
@@ -29,11 +29,11 @@ var mockdata = {
             "systemIndex": "http://scmcy7.cn:8180/cldpoint/primary.do#",
             "productId": "1234",
             "loginUrl": "http://bing.com",
-            "isBinded": true,
+            "isBinded": false,
             "summary": "提供采购管理、库存管理、成本核算、菜品毛利分析以及供货商EDI平台的功能",
-            "color": "#5DB667",
+            "color": "linear-gradient(45deg ,#3064fa , #1dc7e6)",
             "parms": {
-                "userName": "用户名",
+                "userName": "用户名2",
                 "password": "密码",
                 "groupId": "集团号"
             }
@@ -46,9 +46,9 @@ var mockdata = {
             "isBinded": true,
             "systemIndex": "http://cs.wuuxiang.com:888/shop/",
             "summary": "提供会员管理、精准营销及分析等功能",
-            "color": "#1F66C7",
+            "color": "linear-gradient(45deg ,#2984e4 , #d13ed4)",
             "parms": {
-                "userName": "用户名",
+                "userName": "用户名3",
                 "password": "密码",
                 "groupId": "集团号"
             }
