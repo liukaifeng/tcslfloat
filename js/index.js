@@ -18,6 +18,22 @@ var more = require( "../assets/image/more_40.png" );
 var render = template.compile(fund);
 var html = "";
 
+Jquery.fn.serializeObject = function() {  
+    var o = {};  
+    var a = this.serializeArray();  
+    $.each(a, function() {  
+        if (o[this.name]) {  
+            if (!o[this.name].push) {  
+                o[this.name] = [ o[this.name] ];  
+            }  
+            o[this.name].push(this.value || '');  
+        } else {  
+            o[this.name] = this.value || '';  
+        }  
+    });  
+    return o;  
+}
+
 template.helper( "checkBind",function( value ){
 	if( value.isBinded ){
 		return value.color;
@@ -71,10 +87,11 @@ Jquery(function(){
 
 				var inst = Jquery('form[data-remodal-id=modal]').remodal({ hashTracking:false });				
 
+				var currentClick;
 				Jquery( ".floatFunProductCellIn" ).on("click",function(){
 					//填充input
 
-
+					currentClick = this;
 					var productId = Jquery(this).attr( "productId" );
 					var targetCan = Jquery( "#remodal-input" );
 					var isBinded = Jquery(this).attr( "isBinded" );
@@ -99,17 +116,30 @@ Jquery(function(){
 
 				Jquery(document).on("confirmation",'.remodal',function(){
 					// console.log( "confirm" );
-					Jquery( ".remodal" ).attr( "action",posturl );
-					Jquery(".remodal").submit();
-					// Jquery.ajax({
-					// 	url:"/cc",
-					// 	datatype:"json",
-					// 	type:"post",
-					// 	data:{hello:"123"},
-					// 	success:function( res ){
-					// 		console.log(res);
-					// 	}
-					// });
+					//Jquery( ".remodal" ).attr( "action",posturl );
+					//Jquery(".remodal").submit();
+					
+					//console.log( $(currentClick).attr( "productid" ) ); accountid
+					//console.log( $(".remodal").serializeObject() );
+
+					var submitObj;
+					submitObj = $(".remodal").serializeObject();
+					submitObj.productId = $(currentClick).attr( "productid" );
+					submitObj.accountId = $(currentClick).attr( "accountid" );
+					Jquery.ajax({
+						url:posturl,
+						datatype:"json",
+						type:"post",
+						data:submitObj,
+						success:function( res ){
+							//console.log(res);
+							if( res.code === "0" ){
+								$( currentClick ).attr("isbinded","true")
+								.attr( "loginurl",res.data.loginUrl )
+								.css( "background",res.data.color );
+							}
+						}
+					});
 
 				});
 

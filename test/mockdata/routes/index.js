@@ -9,6 +9,7 @@ router.get('/aa', function(req, res, next) {
 var mockdata = {
     "data": [
         {
+            "accountId":"1234122",
             "systemName": "营业管理",
             "iconUrl": "image/canyin7_40.png",
             "systemIndex": "http://219.150.85.232:8078/cy7center/canyin/mng/",
@@ -24,6 +25,7 @@ var mockdata = {
             }
         },
         {
+            "accountId":"1234122",
             "systemName": "库存管理",
             "iconUrl": "image/yungyl_40.png",
             "systemIndex": "http://scmcy7.cn:8180/cldpoint/primary.do#",
@@ -39,6 +41,23 @@ var mockdata = {
             }
         },
         {
+            "accountId":"1234122",
+            "systemName": "库存哈哈",
+            "iconUrl": "image/yungyl_40.png",
+            "systemIndex": "http://scmcy7.cn:8180/cldpoint/primary.do#",
+            "productId": "1124",
+            "loginUrl": "http://bing.com",
+            "isBinded": false,
+            "summary": "提供采购管理、库存管理、成本核算、菜品毛利分析以及供货商EDI平台的功能",
+            "color": "linear-gradient(45deg ,#3064fa , #1dc7e6)",
+            "parms": {
+                "userName2": "用户名2",
+                "password": "密码",
+                "groupId": "集团号"
+            }
+        },
+        {
+            "accountId":"1234122",
             "systemName": "会员营销",
             "iconUrl": "image/crm_40.png",
             "productId": "1236",
@@ -65,7 +84,26 @@ router.get('/bb',function( req,res,next ){
 router.post('/cc',function( req,res,next ){
     
     console.log( res.req.body );
-    res.send({hello:"456"});
+    res.send({
+        "code": "0",
+        "message": "xxx",
+        "data": {
+                "systemName": "营业管理",
+                "iconUrl": "test",
+                "systemIndex": "http://219.150.85.232:8078/cy7center/canyin/mng/",
+                "productId": "XXX",
+                "accountId": "123456",
+                "loginUrl": "xxxxxxxxxxxx",
+                "isBinded": true,
+                "summary": "提供餐饮总部数据深度经营分析功能",
+                "color": "#445265",
+                "parms": {
+                    "userName": "用户名",
+                    "password": "密码",
+                    "groupId": "集团号"
+                }
+            }
+    });
 });
 
 module.exports = router;
