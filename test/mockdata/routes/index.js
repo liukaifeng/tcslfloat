@@ -52,21 +52,6 @@ var mockdata = {
                 "password": "密码",
                 "groupId": "集团号"
             }
-        },
-        {
-            "systemName": "会员营销1",
-            "iconUrl": "image/crm_40.png",
-            "productId": "1237",
-            "loginUrl": "http://163.com",
-            "isBinded": true,
-            "systemIndex": "http://cs.wuuxiang.com:888/shop/",
-            "summary": "提供会员管理、精准营销及分析等功能",
-            "color": "linear-gradient(45deg ,#2984e4 , #d13ed4)",
-            "parms": {
-                "userName4": "用户名4",
-                "password": "密码",
-                "groupId": "集团号"
-            }
         }
     ]
 };
