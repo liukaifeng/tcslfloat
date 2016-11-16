@@ -26,6 +26,10 @@ template.helper( "checkBind",function( value ){
 	}
 });
 
+template.helper( "convertStr",function( value ){
+	return String( value );
+});
+
 Jquery(function(){
 	Jquery("body").append("<div id='floattargetcan'></div>");
 	
@@ -69,20 +73,28 @@ Jquery(function(){
 
 				Jquery( ".floatFunProductCellIn" ).on("click",function(){
 					//填充input
+
+
 					var productId = Jquery(this).attr( "productId" );
 					var targetCan = Jquery( "#remodal-input" );
-					Jquery( ".remodal-inputcell" ).remove();;
-					for( var i = 0 ; i < parseD.data.length ; i++ ){
-						if( productId === parseD.data[i].productId ){
-							for( var p in parseD.data[i].parms ){
-								var pause = Jquery("<div class='remodal-inputcell'></div>");
-								pause.append( Jquery( "<div class='remodal-left'>"+ parseD.data[i].parms[p] +"：</div>" ) );
-								pause.append( Jquery( "<div class='remodal-right'><input name='"+ p +"' type='text'></div>" ) );
-								targetCan.append( pause );
+					var isBinded = Jquery(this).attr( "isBinded" );
+					//console.log( isBinded );
+					if( isBinded === "false" ){
+						Jquery( ".remodal-inputcell" ).remove();;
+						for( var i = 0 ; i < parseD.data.length ; i++ ){
+							if( productId === parseD.data[i].productId ){
+								for( var p in parseD.data[i].parms ){
+									var pause = Jquery("<div class='remodal-inputcell'></div>");
+									pause.append( Jquery( "<div class='remodal-left'>"+ parseD.data[i].parms[p] +"：</div>" ) );
+									pause.append( Jquery( "<div class='remodal-right'><input name='"+ p +"' type='text'></div>" ) );
+									targetCan.append( pause );
+								}
 							}
 						}
+						inst.open();
+					}else{
+						window.location.href = Jquery(this).attr( "loginUrl" );
 					}
-					inst.open();
 				});
 
 				Jquery(document).on("confirmation",'.remodal',function(){
