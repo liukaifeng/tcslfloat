@@ -33,7 +33,7 @@
 			-->
 			{{ each data as value i }}
 				<div class="floatFunProductCell">
-					<div class="floatFunProductCellIn floatFuncrm6" style="background:{{ checkBind(value) }}">
+					<div class="floatFunProductCellIn floatFuncrm6" productId="{{ value.productId }}" style="background:{{ checkBind(value) }}">
 						<img src="{{ value.iconUrl }}" alt="">	
 					</div>
 					<span>{{ value.systemName }}</span>
@@ -55,30 +55,30 @@
 			  <div class="remodal-title">
 			  	绑定服务
 			  </div>
-			  <div>
-			  	<div id="remodal-rectangle"></div>
-			  	<span id="remodal-name">吾享餐饮</span>
-			  	<div id="remodal-info">
-			  		注：完成绑定后可直接登录该系统
-			  	</div>
-			  	<div class="remodal-inputcell">
-			  		<div class="remodal-left">集团号：</div>
-			  		<div class="remodal-right">
-			  			<input name="hello1" type="text">
-			  		</div>	
-			  	</div>
-			  	<div class="remodal-inputcell">
-			  		<div class="remodal-left">用户名：</div>
-			  		<div class="remodal-right">
-			  			<input name="hello2" type="text">
-			  		</div>	
-			  	</div>
-			  	<div class="remodal-inputcell">
-			  		<div class="remodal-left">密码：</div>
-			  		<div class="remodal-right">
-			  			<input name="hello3" type="text">
-			  		</div>	
-			  	</div>
+			  <div id="remodal-input">
+				  	<div id="remodal-rectangle"></div>
+				  	<span id="remodal-name">吾享餐饮</span>
+				  	<div id="remodal-info">
+				  		注：完成绑定后可直接登录该系统
+				  	</div>
+				  	<!-- <div class="remodal-inputcell">
+				  		<div class="remodal-left">集团号：</div>
+				  		<div class="remodal-right">
+				  			<input name="hello1" type="text">
+				  		</div>	
+				  	</div>
+				  	<div class="remodal-inputcell">
+				  		<div class="remodal-left">用户名：</div>
+				  		<div class="remodal-right">
+				  			<input name="hello2" type="text">
+				  		</div>	
+				  	</div>
+				  	<div class="remodal-inputcell">
+				  		<div class="remodal-left">密码：</div>
+				  		<div class="remodal-right">
+				  			<input name="hello3" type="text">
+				  		</div>	
+				  	</div> -->
 			  </div>
 
 			  <button data-remodal-action="confirm" class="remodal-confirm">确定</button>

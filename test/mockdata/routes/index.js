@@ -56,7 +56,7 @@ var mockdata = {
         {
             "systemName": "会员营销1",
             "iconUrl": "image/crm_40.png",
-            "productId": "1236",
+            "productId": "1237",
             "loginUrl": "http://163.com",
             "isBinded": true,
             "systemIndex": "http://cs.wuuxiang.com:888/shop/",

@@ -42,19 +42,21 @@ Jquery(function(){
 		}
 	}
 
-	window.getProductData = function( queryParams ){
+	window.getProductData = function( queryParams,posturl ){
 		
 		var realparams = Jquery.extend( {
 			url:"data.json",
 			datatype:"json",
 			type:"get",
 			success:function( data ){
+				var parseD;
 
 				if( typeof( data ) == "object" ){
+					parseD = data;
 					data.data.sort(truefalseq);
 					html = render(data);
 				}else if( typeof( data ) == "string" ){
-					var parseD = JSON.parse( data );
+					parseD = JSON.parse( data );
 					parseD.data.sort(truefalseq);
 					html = render( parseD );
 				}
@@ -64,9 +66,28 @@ Jquery(function(){
 				Jquery( "#floattargetcan" ).html( html );
 
 				var inst = Jquery('form[data-remodal-id=modal]').remodal({ hashTracking:false });				
-				inst.open();
+
+				Jquery( ".floatFunProductCellIn" ).on("click",function(){
+					//填充input
+					var productId = Jquery(this).attr( "productId" );
+					var targetCan = Jquery( "#remodal-input" );
+					Jquery( ".remodal-inputcell" ).remove();;
+					for( var i = 0 ; i < parseD.data.length ; i++ ){
+						if( productId === parseD.data[i].productId ){
+							for( var p in parseD.data[i].parms ){
+								var pause = Jquery("<div class='remodal-inputcell'></div>");
+								pause.append( Jquery( "<div class='remodal-left'>"+ parseD.data[i].parms[p] +"：</div>" ) );
+								pause.append( Jquery( "<div class='remodal-right'><input name='"+ p +"' type='text'></div>" ) );
+								targetCan.append( pause );
+							}
+						}
+					}
+					inst.open();
+				});
+
 				Jquery(document).on("confirmation",'.remodal',function(){
 					// console.log( "confirm" );
+					Jquery( ".remodal" ).attr( "action",posturl );
 					Jquery(".remodal").submit();
 					// Jquery.ajax({
 					// 	url:"/cc",
