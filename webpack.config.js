@@ -14,13 +14,13 @@ module.exports = {
 	      { test: /\.(png|jpg)$/, loader: 'url-loader'}
 	    ]
 	},
-	// plugins:[
-	// 	new webpack.optimize.UglifyJsPlugin({
-	// 		compress:{
-	// 			warnings:false
-	// 		}
-	// 	})
-	// ],
+	plugins:[
+		new webpack.optimize.UglifyJsPlugin({
+			compress:{
+				warnings:false
+			}
+		})
+	],
 	externals:{
 		"jquery":"$"
 	},
