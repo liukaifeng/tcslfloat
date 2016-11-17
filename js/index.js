@@ -140,7 +140,7 @@ Jquery(function(){
 								.css( "background",res.data.color );
 								inst.close();
 							}else{
-								alert( res.message );
+								alert( res.msg );
 							}
 						}
 					});
