@@ -114,14 +114,15 @@ Jquery(function(){
 					}
 				});
 
-				Jquery(document).on("confirmation",'.remodal',function(){
+				//Jquery(document).on("confirmation",'.remodal',function(){
+				Jquery(".remodal-confirm").on("click",function(e){
 					// console.log( "confirm" );
 					//Jquery( ".remodal" ).attr( "action",posturl );
 					//Jquery(".remodal").submit();
 					
 					//console.log( $(currentClick).attr( "productid" ) ); accountid
 					//console.log( $(".remodal").serializeObject() );
-
+					e.preventDefault();
 					var submitObj;
 					submitObj = $(".remodal").serializeObject();
 					submitObj.productId = $(currentClick).attr( "productid" );
@@ -137,6 +138,9 @@ Jquery(function(){
 								$( currentClick ).attr("isbinded","true")
 								.attr( "loginurl",res.data.loginUrl )
 								.css( "background",res.data.color );
+								inst.close();
+							}else{
+								alert( res.message );
 							}
 						}
 					});
