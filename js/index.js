@@ -108,7 +108,7 @@ Jquery(function(){
 								}
 							}
 						}
-						inst.open();
+						//inst.open();
 					}else{
 						window.location.href = Jquery(this).attr( "loginUrl" );
 					}
