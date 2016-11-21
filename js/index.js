@@ -63,7 +63,14 @@ Jquery(function(){
 	}
 
 	window.getProductData = function( queryParams,posturl ){
-		
+		if( queryParams.url === undefined ){
+			queryParams.url = "http://slyun.tcsl.com.cn:9080/manager/cors/getAllProducts?accountId=" + queryParams.id;
+		}
+		if ( queryParams.id === undefined ){
+			alert( "请传入id参数" );
+			return;
+		}
+
 		var realparams = Jquery.extend( {
 			url:"data.json",
 			datatype:"json",
