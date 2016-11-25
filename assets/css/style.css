@@ -2,6 +2,7 @@
 	position: fixed;
     bottom: 15px;
     right: 65px;
+    z-index: 999;
 }
 #floattargetcan #btnCan{
 	border:1px solid grey;
