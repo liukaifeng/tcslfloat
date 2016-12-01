@@ -6,7 +6,7 @@ router.get('/aa', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-var mockdata = {
+var mockdata = {"iscanyin7login":true,
     "data": [
         {
             "accountId":"1234122",

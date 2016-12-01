@@ -19,7 +19,6 @@
 	text-align: center;
 	width: 43px;
 	height: 43px;
-	border-bottom: 1px solid grey;
 }
 
 #floattargetcan .floatFunProductCan{
@@ -79,6 +78,7 @@
     font-size: 14px;
     line-height: 21px;
     box-sizing: content-box;
+    cursor:pointer;
 }
 #floattargetcan .floatFunProductCellIn a{
 	text-decoration: none;
@@ -217,4 +217,20 @@
 }
 .remodal-cancel:hover{
 	background: #e6e6e6;
+}
+#floattargetcan .canyin7operate{
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    font-size: 12px;;
+}
+#floattargetcan .canyin7operate:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+#floattargetcan .canyin7operate .canyin7function{
+    color:#bcbcbc;
+    text-decoration: underline;
+    cursor: pointer;
 }
