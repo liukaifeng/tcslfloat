@@ -93,8 +93,14 @@ Jquery(function(){
 				Jquery( "#floattargetcan" ).html( html );
 
 				var inst = Jquery('form[data-remodal-id=modal]').remodal({ hashTracking:false });				
-
+				var canyin7Loginurl;
+				for( var i = 0 ; i < parseD.data.length ; i++ ){
+					if( parseD.data[i].productId === "001" ){
+						canyin7Loginurl = parseD.data[i].loginUrl;
+					}
+				}
 				var currentClick;
+				//产品按钮加事件
 				Jquery( ".floatFunProductCellIn" ).on("click",function(){
 					//填充input
 
@@ -121,6 +127,7 @@ Jquery(function(){
 					}
 				});
 
+				//弹出层确认按钮事件
 				//Jquery(document).on("confirmation",'.remodal',function(){
 				Jquery(".remodal-confirm").on("click",function(e){
 					// console.log( "confirm" );
@@ -154,6 +161,25 @@ Jquery(function(){
 
 				});
 
+				//注销按钮加事件
+				Jquery(".canyin7operate .cy7logout").on("click",function(){
+					//console.log( "点击了注销按钮" );
+					Jquery.ajax({
+						url:"http://192.168.12.152:8080/manager/cors/logout",
+						datatype:"json",
+						type:"get",
+						data:"accountId="+parseD.data[0].accountId,//每一个产品的account id 都是一样的，随便找一个数组元素取
+						success:function( res ){
+							//console.log(res);
+							if( res.code === "0" ){	
+								window.location.href = canyin7Loginurl;
+							}
+						},
+						error:function(){
+							alert("网络问题");
+						}
+					});
+				});
 
 				// Jquery( "#base64img" ).attr("src",img1 );			
 
@@ -172,8 +198,11 @@ Jquery(function(){
 					}
 				});
 
-
-
+				//判断返回值的属性，是不是显示餐饮7的两个功能，管理通行证 和 注销 这两个
+				console.log( parseD );
+				if( parseD.iscanyin7login ){
+					Jquery( "#floattargetcan .canyin7operate" ).css("display","block");
+				}
 				
 			}
 		},queryParams );

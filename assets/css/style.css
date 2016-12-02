@@ -222,7 +222,8 @@
     position: absolute;
     bottom: 12px;
     right: 20px;
-    font-size: 12px;;
+    font-size: 12px;
+    display: none;
 }
 #floattargetcan .canyin7operate:after {
     content: ' ';
