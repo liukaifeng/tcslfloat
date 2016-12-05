@@ -63,8 +63,11 @@ Jquery(function(){
 	}
 
 	window.getProductData = function( queryParams,posturl ){
+		var defaultUrl="http://192.168.12.217:8080/manager";
+		var managerUrl = defaultUrl + "/resources/index.html";
+		var logoutUrl = defaultUrl + "/cors/logout";
 		if( queryParams.url === undefined ){
-			queryParams.url = "http://slyun.tcsl.com.cn:9080/manager/cors/getAllProducts?accountId=" + queryParams.id;
+			queryParams.url = defaultUrl +"/cors/getAllProducts?accountId=" + queryParams.id;
 		}
 		if ( queryParams.id === undefined ){
 			alert( "请传入id参数" );
@@ -165,7 +168,7 @@ Jquery(function(){
 				Jquery(".canyin7operate .cy7logout").on("click",function(){
 					//console.log( "点击了注销按钮" );
 					Jquery.ajax({
-						url:"http://192.168.12.152:8080/manager/cors/logout",
+						url:logoutUrl,
 						datatype:"json",
 						type:"get",
 						data:"accountId="+parseD.data[0].accountId,//每一个产品的account id 都是一样的，随便找一个数组元素取
@@ -197,11 +200,15 @@ Jquery(function(){
 						Jquery( ".floatFunProductCan" ).fadeOut( 300 );
 					}
 				});
-
+				
 				//判断返回值的属性，是不是显示餐饮7的两个功能，管理通行证 和 注销 这两个
 				console.log( parseD );
+				Jquery( "#floattargetcan .canyin7operate" ).css("display","block");
 				if( parseD.iscanyin7login ){
-					Jquery( "#floattargetcan .canyin7operate" ).css("display","block");
+					Jquery( "#floattargetcan .canyin7operate a" ).css("display","none");
+				}else{
+					Jquery( "#floattargetcan .canyin7operate a" ).attr("href",managerUrl);
+					Jquery( "#floattargetcan .canyin7operate span" ).css("display","none");
 				}
 				
 			}
