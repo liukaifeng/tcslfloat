@@ -73,6 +73,12 @@ Jquery(function(){
 			alert( "请传入id参数" );
 			return;
 		}
+		if( queryParams.bottom ){
+			Jquery( "#floattargetcan" ).css( "bottom",queryParams.bottom );
+		}
+		if( queryParams.right ){
+			Jquery( "#floattargetcan" ).css( "right",queryParams.right );
+		}
 
 		var realparams = Jquery.extend( {
 			url:"data.json",

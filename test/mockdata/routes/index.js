@@ -59,7 +59,7 @@ var mockdata = {"iscanyin7login":true,
         {
             "accountId":"123",
             "systemName": "会员营销",
-            "iconUrl": "image/crm_40.png",
+            "iconUrl": "image/canyin_zb_icon.png",
             "productId": "1236",
             "loginUrl": "http://163.com",
             "isBinded": true,

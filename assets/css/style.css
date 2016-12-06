@@ -59,6 +59,7 @@
     padding-left: 38px;
     background: none;
     text-align: center;
+    box-sizing: content-box;
 }
 
 #floattargetcan .floatFunProductCell span{
