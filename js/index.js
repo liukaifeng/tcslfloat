@@ -132,7 +132,8 @@ Jquery(function(){
 						}
 						//inst.open();
 					}else{
-						window.location.href = Jquery(this).attr( "loginUrl" );
+						window.location.assign(Jquery(this).attr( "loginUrl" ));
+						// window.location.href = Jquery(this).attr( "loginUrl" );
 					}
 				});
 
