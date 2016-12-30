@@ -213,7 +213,9 @@ Jquery(function(){
 				if( parseD.iscanyin7login ){
 					Jquery( "#floattargetcan .canyin7operate a" ).css("display","none");
 				}else{
-					Jquery( "#floattargetcan .canyin7operate a" ).attr("href",managerUrl);
+					Jquery( "#floattargetcan .canyin7operate a" ).click(function(){
+						window.location.assign(managerUrl);
+					});
 					Jquery( "#floattargetcan .canyin7operate span" ).css("display","none");
 				}
 				
