@@ -101,7 +101,7 @@ Jquery(function(){
 
 				Jquery( "#floattargetcan" ).html( html );
 
-				var inst = Jquery('form[data-remodal-id=modal]').remodal({ hashTracking:false });				
+				// var inst = Jquery('form[data-remodal-id=modal]').remodal({ hashTracking:false });				
 				var canyin7Loginurl;
 				for( var i = 0 ; i < parseD.data.length ; i++ ){
 					if( parseD.data[i].productId === "001" ){
