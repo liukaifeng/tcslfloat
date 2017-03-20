@@ -2,10 +2,10 @@ var Jquery = require( "jquery" );
 var fund = require( "../html/fund.html" );
 var template = require('art-template');
 
-var remodal = require('remodal/dist/remodal.min.js');
+// var remodal = require('remodal/dist/remodal.min.js');
 //var remodal = require('imports?$=jquery!remodal/dist/remodal.min');
-var remodalcss1 = require('remodal/dist/remodal-default-theme.css');
-var remodalcss2 = require('remodal/dist/remodal.css');
+// var remodalcss1 = require('remodal/dist/remodal-default-theme.css');
+// var remodalcss2 = require('remodal/dist/remodal.css');
 var css = require("../assets/css/style.css");
 
 // var img1 = require("../assets/image/kefu_40.png");
@@ -139,37 +139,37 @@ Jquery(function(){
 
 				//弹出层确认按钮事件
 				//Jquery(document).on("confirmation",'.remodal',function(){
-				Jquery(".remodal-confirm").on("click",function(e){
-					// console.log( "confirm" );
-					//Jquery( ".remodal" ).attr( "action",posturl );
-					//Jquery(".remodal").submit();
+				// Jquery(".remodal-confirm").on("click",function(e){
+				// 	// console.log( "confirm" );
+				// 	//Jquery( ".remodal" ).attr( "action",posturl );
+				// 	//Jquery(".remodal").submit();
 					
-					//console.log( $(currentClick).attr( "productid" ) ); accountid
-					//console.log( $(".remodal").serializeObject() );
-					e.preventDefault();
-					var submitObj;
-					submitObj = $(".remodal").serializeObject();
-					submitObj.productId = $(currentClick).attr( "productid" );
-					submitObj.accountId = $(currentClick).attr( "accountid" );
-					Jquery.ajax({
-						url:posturl,
-						datatype:"json",
-						type:"post",
-						data:submitObj,
-						success:function( res ){
-							//console.log(res);
-							if( res.code === "0" ){
-								$( currentClick ).attr("isbinded","true")
-								.attr( "loginurl",res.data.loginUrl )
-								.css( "background",res.data.color );
-								inst.close();
-							}else{
-								alert( res.msg );
-							}
-						}
-					});
+				// 	//console.log( $(currentClick).attr( "productid" ) ); accountid
+				// 	//console.log( $(".remodal").serializeObject() );
+				// 	e.preventDefault();
+				// 	var submitObj;
+				// 	submitObj = $(".remodal").serializeObject();
+				// 	submitObj.productId = $(currentClick).attr( "productid" );
+				// 	submitObj.accountId = $(currentClick).attr( "accountid" );
+				// 	Jquery.ajax({
+				// 		url:posturl,
+				// 		datatype:"json",
+				// 		type:"post",
+				// 		data:submitObj,
+				// 		success:function( res ){
+				// 			//console.log(res);
+				// 			if( res.code === "0" ){
+				// 				$( currentClick ).attr("isbinded","true")
+				// 				.attr( "loginurl",res.data.loginUrl )
+				// 				.css( "background",res.data.color );
+				// 				inst.close();
+				// 			}else{
+				// 				alert( res.msg );
+				// 			}
+				// 		}
+				// 	});
 
-				});
+				// });
 
 				//注销按钮加事件
 				Jquery(".canyin7operate .cy7logout").on("click",function(){
@@ -209,7 +209,7 @@ Jquery(function(){
 				});
 				
 				//判断返回值的属性，是不是显示餐饮7的两个功能，管理通行证 和 注销 这两个
-				console.log( parseD );
+				// console.log( parseD );
 				Jquery( "#floattargetcan .canyin7operate" ).css("display","block");
 				if( parseD.iscanyin7login ){
 					Jquery( "#floattargetcan .canyin7operate a" ).css("display","none");
